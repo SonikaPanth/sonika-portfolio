@@ -1,65 +1,68 @@
-import Image from "next/image";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Experience from "@/components/Experience";
+import ProjectsGallery from "@/components/ProjectsGallery";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <header className="fixed top-0 left-0 right-0 z-50 mt-unit bg-white/5 backdrop-blur-[20px] border-b border-white/10 shadow-[0px_10px_40px_rgba(0,212,255,0.1)]">
+        <nav className="max-w-container-max mx-auto px-margin-desktop h-20 flex justify-between items-center">
+          <div className="font-headline-md text-headline-md font-bold tracking-tight text-on-surface">Sonika Panth</div>
+          <div className="hidden md:flex items-center gap-10">
+            <a className="font-label-sm text-label-sm text-primary border-b-2 border-primary pb-1" href="#work">Work</a>
+            <a className="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#experience">Experience</a>
+            <a className="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#qualifications">Expertise</a>
+            <a className="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#about">About</a>
+            <a className="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#contact">Contact</a>
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="material-symbols-outlined text-primary-fixed-dim" data-icon="terminal">terminal</span>
+            <button className="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-sm text-label-sm hover:scale-110 hover:shadow-[0px_0px_20px_rgba(168,232,255,0.4)] transition-all duration-400">Resume</button>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <ProjectsGallery />
+        <Contact />
       </main>
-    </div>
+
+      {/* Footer */}
+      <footer className="relative w-full py-12 bg-background border-t border-outline-variant/30">
+        <div className="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-unit">
+          <div className="font-headline-md text-headline-md text-primary">Sonika Panth</div>
+          <div className="text-on-surface-variant font-body-md text-body-md opacity-80 hover:opacity-100 transition-opacity">
+            © {new Date().getFullYear()} Sonika Panth. Crafted for the Digital Frontier.
+          </div>
+          <div className="flex gap-8">
+            <a className="text-on-surface-variant hover:text-secondary transition-all duration-300 font-body-md" href="#">LinkedIn</a>
+            <a className="text-on-surface-variant hover:text-secondary transition-all duration-300 font-body-md" href="#">GitHub</a>
+            <a className="text-on-surface-variant hover:text-secondary transition-all duration-300 font-body-md" href="#">Dribbble</a>
+            <a className="text-on-surface-variant hover:text-secondary transition-all duration-300 font-body-md" href="#">Twitter</a>
+          </div>
+        </div>
+      </footer>
+
+      {/* Bottom Nav for Mobile */}
+      <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[90%] glass-panel rounded-full py-4 px-8 flex justify-around items-center shadow-2xl">
+        <a className="flex flex-col items-center text-primary" href="#work">
+          <span className="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+        </a>
+        <a className="flex flex-col items-center text-on-surface-variant" href="#experience">
+          <span className="material-symbols-outlined" data-icon="psychology">psychology</span>
+        </a>
+        <a className="flex flex-col items-center text-on-surface-variant" href="#about">
+          <span className="material-symbols-outlined" data-icon="person">person</span>
+        </a>
+        <a className="flex flex-col items-center text-on-surface-variant" href="#contact">
+          <span className="material-symbols-outlined" data-icon="send">send</span>
+        </a>
+      </div>
+    </>
   );
 }
