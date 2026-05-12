@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -39,8 +40,9 @@ export default function RootLayout({
         {/* Floating Backgrounds from Stitch UI */}
         <div className="floating-bg radial-gradient-1"></div>
         <div className="floating-bg radial-gradient-2"></div>
-        
+
         {children}
+        <Toaster position="top-right" richColors />
       </body>
     </html>
   );

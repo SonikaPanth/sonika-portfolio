@@ -46,7 +46,7 @@ export default function Experience() {
             <div className="max-w-4xl mx-auto relative pl-12 md:pl-20">
               {/* Vertical Timeline Line */}
               <div className="absolute left-[23px] md:left-[39px] top-4 bottom-4 timeline-line"></div>
-              
+
               {/* MCA Entry */}
               <div className="relative mb-20 group">
                 <div className="absolute -left-[50px] md:-left-[66px] top-0 w-12 h-12 rounded-full glass-panel border-primary/50 flex items-center justify-center bg-background z-10 group-hover:scale-110 transition-transform duration-300">
@@ -68,10 +68,10 @@ export default function Experience() {
                 </div>
                 <div className="glass-panel p-8 rounded-2xl">
                   <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4 gap-2">
-                    <h3 className="font-headline-md text-2xl md:text-3xl text-on-surface">Bachelor of Computer Applications (BCA)</h3>
-                    <span className="font-label-sm text-secondary tracking-widest">2019 - 2022</span>
+                    <h3 className="font-headline-md text-2xl md:text-3xl text-on-surface">Bachelor of Science (B.Sc)</h3>
+                    <span className="font-label-sm text-secondary tracking-widest">2018 - 2021</span>
                   </div>
-                  <p className="text-on-surface-variant font-body-lg text-body-lg">Arka Jain University, Jharkhand</p>
+                  <p className="text-on-surface-variant font-body-lg text-body-lg">St.Paul Institute Of Professional Studies, Indore</p>
                 </div>
               </div>
             </div>

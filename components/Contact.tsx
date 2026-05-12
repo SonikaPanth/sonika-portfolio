@@ -1,6 +1,36 @@
+'use client'
+
 import ScrollReveal from "./ScrollReveal";
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
+import { toast } from "sonner";
 
 export default function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!formRef.current) return;
+
+    emailjs
+      .sendForm(
+        "service_effu4ue",
+        "template_okfxjds",
+        formRef.current,
+        "dQvIXycxadBESP9q1"
+      )
+      .then(
+        () => {
+          toast.success("Signal sent successfully!");
+          formRef.current?.reset();
+        },
+        (error) => {
+          console.log(error.text);
+          toast.error("Failed to send signal.");
+        }
+      );
+  };
   return (
     <section className="py-[120px] px-margin-mobile md:px-margin-desktop bg-surface" id="contact">
       <ScrollReveal direction="up" delay={0.1}>
@@ -11,22 +41,22 @@ export default function Contact() {
             <div className="absolute top-0 right-0 p-4 opacity-10">
               <span className="material-symbols-outlined text-[120px]" data-icon="mail">mail</span>
             </div>
-            <form className="space-y-6 relative z-10">
+            <form ref={formRef} onSubmit={sendEmail} className="space-y-6 relative z-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="font-label-sm text-label-sm text-on-surface-variant uppercase">Name</label>
-                  <input className="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-6 py-4 focus:border-primary-container focus:ring-0 text-on-surface transition-colors placeholder:opacity-30" placeholder="John Doe" type="text" />
+                  <input className="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-6 py-4 focus:border-primary-container focus:ring-0 text-on-surface transition-colors placeholder:opacity-30" placeholder="John Doe" type="text" name="user_name" />
                 </div>
                 <div className="space-y-2">
                   <label className="font-label-sm text-label-sm text-on-surface-variant uppercase">Email</label>
-                  <input className="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-6 py-4 focus:border-primary-container focus:ring-0 text-on-surface transition-colors placeholder:opacity-30" placeholder="john@frontier.com" type="email" />
+                  <input className="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-6 py-4 focus:border-primary-container focus:ring-0 text-on-surface transition-colors placeholder:opacity-30" placeholder="john@frontier.com" type="email" name="user_email" />
                 </div>
               </div>
               <div className="space-y-2">
                 <label className="font-label-sm text-label-sm text-on-surface-variant uppercase">Message</label>
-                <textarea className="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-6 py-4 focus:border-primary-container focus:ring-0 text-on-surface transition-colors placeholder:opacity-30" placeholder="Tell me about your vision..." rows={4}></textarea>
+                <textarea className="w-full bg-surface-container-low border border-outline-variant/30 rounded-xl px-6 py-4 focus:border-primary-container focus:ring-0 text-on-surface transition-colors placeholder:opacity-30" placeholder="Tell me about your vision..." rows={4} name="message"></textarea>
               </div>
-              <button className="w-full py-5 bg-primary-container text-on-primary-container font-bold rounded-xl neon-glow-blue hover:scale-[1.02] active:scale-[0.98] transition-all" type="button">Send Signal</button>
+              <button className="w-full py-5 bg-primary-container text-on-primary-container font-bold rounded-xl neon-glow-blue hover:scale-[1.02] active:scale-[0.98] transition-all" type="submit">Send Signal</button>
             </form>
           </div>
           <div className="mt-16 flex flex-col items-center gap-8">

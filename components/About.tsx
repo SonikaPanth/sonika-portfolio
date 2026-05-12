@@ -23,7 +23,8 @@ export default function About() {
               <div className="absolute -inset-4 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
               <div className="relative w-80 h-96 glass-panel rounded-xl overflow-hidden flex items-center justify-center border-white/10">
                 {/* Using a placeholder or the actual image from Stitch */}
-                <img alt="Sonika Panth Profile" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsSxzOq_vct1ZglcC9ATazZHX-p3tC5JQENOQnPW8ZCdxdIhZece8sXYB6A4V8edrWxgHxqALfaV96AIBpOjtU_0TCPaJw55xIokJNwsYBZfThDVylisDQP-F-PIyDFiM8BZGOeADCrEKOsFCFe5Q8F0u24PPDn8Q_YXF3HnXuq3612E0Y6WYcTvskaq5pp1-6M1dthMMktGbXzTBPjtzB6mqXCHnD-tDpmO9hKMofglKvs3YQEOcku0QZEwCWMaFxVdSnsiEw7mbl"/>
+                <img alt="Sonika Panth Profile" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  src="/assets/profile_pic.jpeg" />
               </div>
             </div>
           </div>
