@@ -62,7 +62,7 @@ export default function ProjectsGallery() {
               {/* Content */}
               <div className="p-8 flex flex-col flex-1">
                 <span
-                  className={`font-label-sm text-label-sm text-${project.accent} tracking-widest uppercase mb-3`}
+                  className={`font-label-sm text-label-sm text-${project.accentClass} tracking-widest uppercase mb-3`}
                 >
                   {project.category}
                 </span>
